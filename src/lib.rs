@@ -147,7 +147,7 @@ $ cargo run --example cookbook-read-serde < examples/data/smallpop.csv
 
 */
 
-#![deny(missing_docs)]
+#![warn(missing_docs)]
 
 use std::result;
 
@@ -168,10 +168,10 @@ pub use crate::writer::{Writer, WriterBuilder};
 
 mod byte_record;
 pub mod cookbook;
-mod deserializer;
+pub mod deserializer;
 mod error;
 mod reader;
-mod serializer;
+pub mod serializer;
 mod string_record;
 pub mod tutorial;
 mod writer;

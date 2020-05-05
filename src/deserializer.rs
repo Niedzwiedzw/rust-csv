@@ -68,7 +68,7 @@ pub fn deserialize_byte_record<'de, D: Deserialize<'de>>(
 /// `StringRecord`.
 ///
 /// The lifetime `'r` refers to the lifetime of the underlying record.
-trait DeRecord<'r> {
+pub trait DeRecord<'r> {
     /// Returns true if and only if this deserialize has access to headers.
     fn has_headers(&self) -> bool;
 
@@ -99,7 +99,7 @@ trait DeRecord<'r> {
     ) -> Result<V::Value, DeserializeError>;
 }
 
-struct DeRecordWrap<T>(T);
+pub struct DeRecordWrap<T>(T);
 
 impl<'r, T: DeRecord<'r>> DeRecord<'r> for DeRecordWrap<T> {
     #[inline]
